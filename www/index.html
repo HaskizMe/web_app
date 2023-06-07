@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Luna3</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css?h=54e537e75377c5b211e96e1189231814">
+    <link rel="stylesheet" href="assets/css/Inter.css?h=fdd9cf508307219e607587b80e630c8f">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css?h=34f9b351b7076f97babcdac3c1081100">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css?h=4d8b81e72f64ff2f08f7b81ac82a2540">
+    <link rel="stylesheet" href="assets/css/switch.css?h=c14095f370f48b5a803ea657bd50a01a">
+</head>
+
+<body>
+    <div class="l3-container">
+        <div id="l3-splash-logo" class="l3-splash-logo" style="width: 100%;position: absolute;top: 40%;background-size: contain;">
+            <div style="width: 80%;margin: auto;"><img class="img-fluid" src="assets/img/long%20format%20BIG.png?h=bd98d65543d23c984f78bed58a0d7504"></div>
+        </div>
+        <div id="l3-content" class="l3-content" style="display: none;">
+            <div class="row g-0 l3-content-row">
+                <div class="col">
+                    <div class="l3-pane">
+                        <div class="shadow l3-pane-content">
+                            <div class="d-flex">
+                                <div style="width: 111px;">
+                                    <div style="width: 83px;height: 83px;margin: auto;">
+                                        <div style="padding: 16px 24px 0 24px;"><img class="img-fluid l3-nav-button" id="l3-nav-first" src="assets/img/first.png?h=f49ce673ce462dab7db1dcb3287769af"></div>
+                                        <div class="text-center"><small>First</small></div>
+                                    </div>
+                                    <div style="width: 83px;height: 83px;margin: auto;">
+                                        <div style="padding: 16px 24px 0 24px;"><img class="img-fluid l3-nav-button" id="l3-nav-next" src="assets/img/forward.png?h=f49ce673ce462dab7db1dcb3287769af"></div>
+                                        <div class="text-center"><small>Next</small></div>
+                                    </div>
+                                    <div style="width: 83px;height: 83px;margin: auto;">
+                                        <div style="padding: 16px 24px 0 24px;"><img class="img-fluid l3-nav-button" id="l3-nav-back" src="assets/img/back.png?h=db9e13358fb7d12e971fdee50528848f"></div>
+                                        <div class="text-center"><small>Back</small></div>
+                                    </div>
+                                    <div style="width: 83px;height: 83px;margin: auto;">
+                                        <div style="padding: 16px 24px 0 24px;"><img class="img-fluid l3-nav-button" id="l3-nav-last" src="assets/img/last.png?h=ff7be91bd7cdb68a43deb0902c1f31bf"></div>
+                                        <div class="text-center"><small>Last</small></div>
+                                    </div>
+                                </div>
+                                <div style="border: 1px solid #0B9CA230;"><canvas id="l3-bbmp-canvas" height="324"></canvas></div>
+                            </div>
+                            <div class="d-flex" style="height: 64px;">
+                                <div style="width: 111px;"></div>
+                                <div style="display: flex;width: 302px;padding-left: 1px;padding-right: 1px;">
+                                    <div style="width: 75px;"><canvas id="l3-probe1-canvas" width="75" height="75"></canvas></div>
+                                    <div style="width: 75px;"><canvas id="l3-probe2-canvas" width="75" height="75"></canvas></div>
+                                    <div style="width: 75px;"><canvas id="l3-probe3-canvas" width="75" height="75"></canvas></div>
+                                    <div style="width: 75px;"><canvas id="l3-probe4-canvas" width="75" height="75"></canvas></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="l3-pane">
+                        <div class="shadow l3-pane-content" style="position: relative;">
+                            <div style="position: absolute;display: flex;top: 368px;width: 100%;height: 48px;">
+                                <div style="width: 100px;"><label class="l3c-switch"><input type="checkbox" id="l3-auto-adv-cb" /><span class="l3c-slider round"></span></label>
+                                    <div><small>Auto advance</small></div>
+                                </div>
+                                <div style="padding-left: 16px;">
+                                    <h3 id="l3-point-label" style="color: #397090;font-family: 'Inter';"></h3>
+                                </div>
+                            </div>
+                            <div style="height: 332px;"><canvas id="l3-graph-canvas" height="248"></div>
+                        </div>
+                    </div>
+                    <button id="configure-settings-button" class="configure-settings-button">Configure Settings</button>
+                </div>
+            </div>
+        </div>
+        <section class="main-body" id="main-body" style="display: none;">
+            <form id="settings-form" class="settings-form">
+                <label class="custom-label">
+                    <span class="custom-label-span">Register:</span>
+                    <p style="display: inline-block;">0x</p>
+                    <input class="custom-input" type="text" id="reg-num" placeholder="Register address">
+                    <input class="custom-input" type="text" id="reg-value">
+                    <button class="submit-btn" id="submit-write-btn">Write</button>
+                    <button class="submit-btn" onclick="printValue()" id="submit-read-btn">Read</button>
+                    <p id="error-message-read" style="color: rgba(255, 0, 0, 0.897); margin-top: -10px; margin-bottom: 0px;"></p>
+
+                </label>
+                <div class="bottom-part-div">
+                    <button class="back-btn" id="back-button">back</button>
+                    <button class="submit-btn" id="submit-button">Execute Measurement</button>
+                    
+                </div>
+                <div id="btn-loader"></div>
+            </form>
+        </section>
+        <div class="border-secondary l3-topbar" id="l3-topbar">
+            <div id="l3-topbar-ctls" class="l3-topbar-ctls"></div>
+        </div>
+        <div id="l3-bkg-logout" class="l3-bkg-logout" style="display: none;">
+            <div class="text-center"><a id="l3-bkg-logout-link" class="l3-bkg-logout-link" href="javascript:void(0);"><i class="fa fa-sign-out" style="font-size: 1.5rem;"></i></a></div><small style="user-select: none;">Sign-out</small>
+        </div>
+        <div id="l3-topbar-logo" class="l3-topbar-logo"><img class="img-fluid" src="assets/img/long%20format%20BIG.png?h=bd98d65543d23c984f78bed58a0d7504"></div>
+        <div class="shadow-lg l3-dialog" id="l3-dialog-ble-e1" style="width: 368px;height: 250px;visibility: hidden;">
+            <div class="l3-dialog-header">
+                <div class="d-flex bg-danger icon-circle"><i class="fa fa-warning" style="font-size: 22px;color: whitesmoke;"></i></div>
+                <div class="l3-dialog-header-title">
+                    <h5 class="l3-title-font">Bluetooth not supported</h5>
+                </div>
+            </div>
+            <div class="l3-dialog-content"><span><br>Bluetooth connectivity is not available. Please use a supported browser, such as Google Chrome.<br></span></div>
+        </div>
+        <div class="shadow-lg l3-dialog l3-login" id="l3-login" style="visibility: hidden;">
+            <form id="l3-login-form" method="post">
+                <h1 style="text-align: center;font-size: 2.5rem;">Sign in</h1>
+                <div class="text-center" style="padding: 1rem 1rem 2rem 1rem;"><img class="img-fluid" id="l3-login-image" src="assets/img/IS%20Logo_Symbol.png?h=9e324a646314fa5ff9b0e2d20d18526a" style="width: 30%;"></div>
+                <div id="l3-login-input-div"><input class="form-control form-control-lg l3-form-input" type="email" id="l3-login-email-input" placeholder="Email" name="email" required="" style="margin-bottom: 16px;"><input class="form-control form-control-lg l3-form-input" type="password" id="l3-login-pass-input" placeholder="Password" name="password" required="" style="margin-bottom: 2rem;"><button class="btn btn-lg l3-dialog-btn" id="l3-login-btn" type="submit" style="width: 100%;">Log In</button>
+                    <p id="error-message" class="hidden" style="color: rgba(255, 0, 0, 0.897);"></p>
+                </div>
+            </form>
+        </div>
+        <div class="shadow-lg l3-dialog l3-ble-pair" id="l3-ble-pair" style="visibility: hidden;">
+            <div>
+                <div class="row g-0">
+                    <div class="col-sm-7" style="height: 122px;">
+                        <div id="l3-pair-div">
+                            <h2 class="text-center" style="font-family: 'Inter'; font-size: 1.6rem;">Connect Luna 3</h2>
+                            <p class="text-center">Power on the Luna 3 device and click "Connect" to scan and pair</p>
+                        </div>
+                        <div id="l3-conn-div" style="display: none;">
+                            <h2 class="text-center" style="font-family: 'Inter';">Connecting</h2>
+                            <div class="text-center" style="width: 100%;"><img class="img-fluid pulse animated infinite" src="assets/img/ble-con.svg?h=5d867f7b31809d9beaf42b7c1438e9c8" width="60px"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-5 col-md-5 text-center"><img class="img-fluid" src="assets/img/icm_device.png?h=58a96f7d4125a13ffdc791e4cd716c20"></div>
+                </div>
+                <div class="text-center" style="width: 100%;padding-top: 32px;"><button class="btn btn-lg l3-dialog-btn2 l3-pair-btn" id="l3-pair-btn" type="button">Connect</button></div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js?h=06ed58a0080308e1635633c2fd9a56a3"></script>
+    <script src="assets/js/bs-init.js?h=cd759cd84d0f5ce08e477217e1c37697"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="assets/js/l3-accounts.js?h=24bf5a5c269cb41167e06d92099c0d3d"></script>
+    <script src="assets/js/l3-app.js?h=6aacd91358119b72c6e14561035a5312"></script>
+    <script src="assets/js/l3-auth.js?h=c48ea2192f18d715927deb7d85188943"></script>
+    <script src="assets/js/l3-ble.js?h=26139deffe20cbc0434a44fb7474ba12"></script>
+    <script src="assets/js/l3-data.js?h=b7ea03e77841c8799a2b78ebeb9331a8"></script>
+    <script src="assets/js/l3-list-points.js?h=97b336562c1848204f1b489ec100d2cd"></script>
+    <script src="assets/js/l3-logging.js?h=978fcf1ab3e305dcbc1e4ff3aa155eaf"></script>
+    <script src="assets/js/l3-map-bbmp.js?h=1b3a530607be4043c99521cfcc4c4bee"></script>
+    <script src="assets/js/l3-map-points.js?h=7bd26ba432c7803308256f29a7b51b98"></script>
+    <script src="assets/js/l3-point-nav.js?h=981856617dd9fdd21d0f819dc4dc0914"></script>
+    <script src="assets/js/l3-startup.js?h=f4cbe66dbbc55cc7295dbbcdfc9024a7"></script>
+    <script src="assets/js/l3-ui-body-img.js?h=0e07d6489ce7e92f8e377202d70d270f"></script>
+    <script src="assets/js/l3-ui-connect.js?h=1d731b83f0d56c7244d5082d135a786e"></script>
+    <script src="assets/js/l3-ui-graph.js?h=9e65577fdc3ab18a55743b49cdc515e8"></script>
+    <script src="assets/js/l3-ui-login.js?h=5ede968df39354734539b443f7dd7e52"></script>
+    <script src="assets/js/l3-ui-nav-controls.js?h=95e65e33dd2ebefbd8c4fa914595120f"></script>
+    <script src="assets/js/l3-ui-point-info.js?h=826c66330b3892a7061cc8e0689372f5"></script>
+    <script src="assets/js/l3-ui-probe.js?h=717fcfee1b6752b36ea9c973b320a9b1"></script>
+    <script src="assets/js/l3-ui-splash.js?h=fe53951645e5b10fe69adf09e473e196"></script>
+    <script src="assets/js/l3-ui-test-screen.js?h=3cd5a7d81b976b39ccd9b196994b3146"></script>
+    <script src="assets/js/l3-ui-topbar.js?h=1b83ab432c8a7dbcc196a0d529f4d260"></script>
+    <script src="assets/js/le-ui-auto-adv.js?h=e5c80ec7d00cfa29e088a6d7f21cf201"></script>
+    <script src="assets/js/l3-configure-settings.js"></script>
+</body>
+
+</html>
